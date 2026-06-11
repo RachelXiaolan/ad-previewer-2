@@ -67,8 +67,7 @@ button {
   gap: 12px;
 }
 
-.actions button,
-.device-picker {
+.actions button {
   background: white;
   border: 1px solid #dae4ef;
   border-radius: 9px;
@@ -88,7 +87,7 @@ button {
   display: grid;
   flex: 1;
   gap: 24px;
-  grid-template-columns: 420px minmax(0, 1fr);
+  grid-template-columns: minmax(340px, 0.34fr) minmax(760px, 1fr);
   min-height: 0;
   overflow: hidden;
   padding: 22px 28px 30px;
@@ -125,15 +124,11 @@ button {
   color: #1e5ca8;
 }
 
-.panel-card,
-.spec-row {
+.panel-card {
   background: rgba(255, 255, 255, 0.94);
   border: 1px solid #dfe8f3;
   border-radius: 16px;
   box-shadow: 0 18px 50px rgba(32, 51, 78, 0.08);
-}
-
-.panel-card {
   flex: 1;
   min-height: 0;
   overflow: auto;
@@ -155,6 +150,236 @@ button {
 .form-stack {
   display: grid;
   gap: 16px;
+}
+
+.assistant-stack {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+
+.chat-card,
+.tool-card,
+.report-card {
+  background: #fbfdff;
+  border: 1px solid #dbe4ee;
+  border-radius: 12px;
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+  padding: 14px;
+}
+
+.processing-panel {
+  align-items: center;
+  background: #f3f7fc;
+  border: 1px solid #dbe6f2;
+  border-radius: 10px;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 48px minmax(0, 1fr);
+  min-height: 98px;
+  padding: 14px;
+}
+
+.processing-panel.active {
+  background: #eef6ff;
+  border-color: #c7ddfb;
+}
+
+.processing-icon {
+  align-items: center;
+  background: #fff;
+  border: 1px solid #d8e4f0;
+  border-radius: 12px;
+  color: #216bc7;
+  display: flex;
+  font-size: 13px;
+  font-weight: 900;
+  gap: 4px;
+  height: 48px;
+  justify-content: center;
+  width: 48px;
+}
+
+.processing-icon span {
+  animation: processingPulse 1s ease-in-out infinite;
+  background: #2e7eea;
+  border-radius: 999px;
+  height: 7px;
+  opacity: 0.35;
+  width: 7px;
+}
+
+.processing-icon span:nth-child(2) {
+  animation-delay: 0.16s;
+}
+
+.processing-icon span:nth-child(3) {
+  animation-delay: 0.32s;
+}
+
+.processing-panel strong {
+  color: #304159;
+  display: block;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.processing-panel p {
+  color: #6f8096;
+  font-size: 12px;
+  line-height: 1.45;
+  margin: 0;
+}
+
+@keyframes processingPulse {
+  0%,
+  80%,
+  100% {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
+
+  40% {
+    opacity: 1;
+    transform: translateY(-4px);
+  }
+}
+
+.chat-input-row {
+  display: grid;
+  gap: 10px;
+}
+
+.chat-input-row textarea {
+  line-height: 1.45;
+  min-height: 86px;
+  padding: 11px 12px;
+  resize: vertical;
+}
+
+.chat-input-row button,
+.report-header button {
+  background: #2e7eea;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 850;
+  min-height: 42px;
+  padding: 10px 12px;
+}
+
+.chat-input-row button:disabled,
+.report-header button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.tool-card-header,
+.report-header {
+  align-items: flex-start;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.tool-card-header strong,
+.report-header h2,
+.report-empty h2 {
+  color: #304159;
+  font-size: 15px;
+  margin: 0;
+}
+
+.tool-empty,
+.report-empty p,
+.report-header span {
+  color: #6f8096;
+  font-size: 12px;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.tool-list {
+  display: grid;
+  gap: 8px;
+}
+
+.tool-event {
+  align-items: flex-start;
+  background: #f3f7fc;
+  border: 1px solid #dbe4ee;
+  border-radius: 10px;
+  display: grid;
+  gap: 9px;
+  grid-template-columns: 10px minmax(0, 1fr);
+  padding: 10px;
+}
+
+.tool-dot {
+  background: #e0a02c;
+  border-radius: 999px;
+  height: 9px;
+  margin-top: 5px;
+  width: 9px;
+}
+
+.tool-event.done .tool-dot {
+  background: #18a65f;
+}
+
+.tool-event.error .tool-dot {
+  background: #d83a3a;
+}
+
+.tool-event strong {
+  color: #304159;
+  display: block;
+  font-size: 13px;
+}
+
+.tool-event p {
+  color: #6f8096;
+  font-size: 12px;
+  line-height: 1.35;
+  margin: 3px 0 0;
+  overflow-wrap: anywhere;
+}
+
+.report-card {
+  gap: 16px;
+}
+
+.report-empty {
+  background: #f7fafc;
+  border-style: dashed;
+}
+
+.report-grid {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+}
+
+.source-list {
+  border-top: 1px solid #e0e8f1;
+  display: grid;
+  gap: 7px;
+  padding-top: 12px;
+}
+
+.source-list strong {
+  color: #526172;
+  font-size: 13px;
+}
+
+.source-list a {
+  color: #226bc1;
+  font-size: 12px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  text-decoration: none;
 }
 
 .field-row {
@@ -180,86 +405,6 @@ button {
   font-style: normal;
   text-align: center;
   width: 16px;
-}
-
-.input,
-.swatch-wrap {
-  align-items: center;
-  background: #fbfdff;
-  border: 1px solid #dbe4ee;
-  border-radius: 9px;
-  color: #26384f;
-  display: flex;
-  font-size: 13px;
-  min-height: 42px;
-  padding: 12px;
-  position: relative;
-}
-
-.input::after {
-  color: #9aa8b8;
-  content: '⌄';
-  margin-left: auto;
-}
-
-.input.textarea {
-  align-items: flex-start;
-  line-height: 1.45;
-  min-height: 78px;
-}
-
-.input small {
-  bottom: 6px;
-  color: #a0aebe;
-  font-size: 10px;
-  position: absolute;
-  right: 10px;
-}
-
-.swatch-wrap {
-  gap: 8px;
-}
-
-.swatch {
-  border-radius: 5px;
-  box-shadow: inset 0 0 0 1px rgba(20, 35, 55, 0.16);
-  height: 22px;
-  width: 22px;
-}
-
-.swatch.navy {
-  background: #08284d;
-}
-
-.swatch.white {
-  background: #ffffff;
-}
-
-.swatch.red {
-  background: #df1f31;
-}
-
-.swatch-wrap em {
-  color: #667489;
-  font-size: 12px;
-  font-style: normal;
-  margin-left: 5px;
-}
-
-.hint-box {
-  background: #f1f6ff;
-  border: 1px solid #d8e6fb;
-  border-radius: 10px;
-  color: #6a7a91;
-  font-size: 12px;
-  line-height: 1.45;
-  margin-top: 20px;
-  padding: 13px;
-}
-
-.hint-box strong {
-  color: #3b7bd2;
-  margin-right: 8px;
 }
 
 .preview-panel {
@@ -308,300 +453,14 @@ button {
   flex-direction: column;
   justify-content: center;
   min-height: 560px;
-  overflow: hidden;
+  overflow: visible;
   padding: 22px 28px 30px;
-}
-
-.tv-frame {
-  background: linear-gradient(135deg, #10151d, #020305);
-  border-radius: 8px;
-  box-shadow: 0 28px 70px rgba(9, 18, 31, 0.32);
-  padding: 10px 10px 20px;
-  position: relative;
-  width: min(100%, 910px);
-}
-
-.tv-screen {
-  aspect-ratio: 16 / 9;
-  background: #071427;
-  overflow: hidden;
-  position: relative;
-}
-
-.tv-bezel-label {
-  bottom: 4px;
-  color: #888;
-  font-size: 9px;
-  font-weight: 800;
-  left: 50%;
-  letter-spacing: 1px;
-  position: absolute;
-  transform: translateX(-50%);
-}
-
-.tv-stand {
-  background: linear-gradient(90deg, #111, #4e5560, #111);
-  height: 34px;
-  width: 120px;
-}
-
-.tv-base {
-  background: linear-gradient(90deg, #171717, #626a74, #171717);
-  border-radius: 50%;
-  height: 16px;
-  width: 300px;
-}
-
-.ad-creative {
-  background:
-    radial-gradient(circle at 84% 14%, rgba(255, 255, 255, 0.9) 0 9%, transparent 10%),
-    linear-gradient(105deg, #09294f 0 47%, #f6f9fc 47% 100%);
-  background-position: center;
-  background-size: cover;
-  display: grid;
-  grid-template-columns: 42% 31% 27%;
-  height: 100%;
-  overflow: hidden;
-  padding: 42px 38px;
-}
-
-.has-preview-image {
-  background-position: center !important;
-  background-size: cover !important;
-}
-
-.has-preview-image .home-ad-card,
-.has-preview-image.phone-mock,
-.has-preview-image .deal-card {
-  backdrop-filter: blur(8px);
-}
-
-.ad-copy {
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-width: 0;
-}
-
-.logo-lockup {
-  display: grid;
-  line-height: 0.9;
-  margin-bottom: 26px;
-  position: relative;
-  width: max-content;
-}
-
-.logo-lockup strong {
-  font-size: 30px;
-  letter-spacing: -1.5px;
-}
-
-.logo-lockup small {
-  font-size: 19px;
-  font-style: italic;
-  justify-self: end;
-}
-
-.brand-swoosh {
-  background: #ef283c;
-  border-radius: 100% 0;
-  height: 12px;
-  position: absolute;
-  right: -38px;
-  top: -8px;
-  transform: rotate(-14deg);
-  width: 82px;
-}
-
-.ad-copy h3 {
-  font-size: clamp(38px, 4.2vw, 64px);
-  letter-spacing: -2.5px;
-  line-height: 0.94;
-  margin: 0 0 20px;
-}
-
-.ad-copy p {
-  color: #dbe6f5;
-  font-size: 18px;
-  line-height: 1.35;
-  margin: 0 0 26px;
-  max-width: 390px;
-}
-
-.ad-copy button {
-  background: #e12635;
-  border-radius: 8px;
-  box-shadow: 0 12px 24px rgba(156, 9, 23, 0.28);
-  color: white;
-  font-size: 20px;
-  font-weight: 900;
-  padding: 17px 38px;
-  width: max-content;
-}
-
-.legal {
-  color: rgba(255, 255, 255, 0.62);
-  font-size: 10px;
-  margin-top: 22px;
-}
-
-.phone-mock {
-  align-self: center;
-  background: #11151d;
-  border: 7px solid #161a22;
-  border-radius: 34px;
-  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.28);
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  height: 78%;
-  justify-self: center;
-  padding: 34px 15px 15px;
-  position: relative;
-  width: 190px;
-}
-
-.phone-speaker {
-  background: #06070a;
-  border-radius: 999px;
-  height: 18px;
-  left: 50%;
-  position: absolute;
-  top: 8px;
-  transform: translateX(-50%);
-  width: 74px;
-}
-
-.phone-card {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-  color: #1d2938;
-  display: grid;
-  font-size: 10px;
-  gap: 8px;
-  padding: 13px;
-}
-
-.phone-card strong {
-  font-size: 13px;
-}
-
-.phone-card span {
-  display: flex;
-  justify-content: space-between;
-}
-
-.phone-card mark {
-  background: #e8fff4;
-  border-radius: 7px;
-  color: #0b8e58;
-  font-weight: 900;
-  padding: 7px;
-}
-
-.phone-card.coupon {
-  margin-top: auto;
-}
-
-.deal-stack {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  justify-content: center;
-}
-
-.deal-card {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 15px 34px rgba(35, 53, 74, 0.18);
-  color: #12315b;
-  font-size: 22px;
-  font-weight: 950;
-  padding: 20px;
-  text-align: center;
-  transform: rotate(-4deg);
-  width: 160px;
-}
-
-.deal-card:first-child {
-  background: #e12635;
-  color: white;
-  transform: rotate(10deg);
-}
-
-.deal-card:nth-child(2) {
-  background: #12315b;
-  color: white;
-  transform: rotate(-2deg);
-}
-
-.shopping-bag {
-  align-items: center;
-  background: linear-gradient(135deg, #102d56, #efeff5);
-  border-radius: 15px 15px 24px 24px;
-  color: #df1f31;
-  display: flex;
-  font-size: 66px;
-  font-weight: 950;
-  height: 120px;
-  justify-content: center;
-  width: 132px;
-}
-
-.spec-row {
-  display: grid;
-  gap: 18px;
-  grid-template-columns: repeat(3, 1fr);
-  margin-top: 18px;
-  padding: 18px;
-}
-
-.spec-row div {
-  align-items: center;
-  border-right: 1px solid #e0e8f1;
-  display: grid;
-  gap: 2px 14px;
-  grid-template-columns: 42px 1fr;
-}
-
-.spec-row div:last-child {
-  border-right: 0;
-}
-
-.spec-row b {
-  align-items: center;
-  color: #2a445f;
-  display: flex;
-  font-size: 24px;
-  grid-row: span 2;
-  justify-content: center;
-}
-
-.spec-row span {
-  color: #7c8998;
-  font-size: 12px;
-}
-
-.spec-row strong {
-  color: #304159;
-  font-size: 13px;
 }
 
 @media (max-width: 1280px) {
   .content-grid {
     grid-template-columns: 380px minmax(690px, 1fr);
     padding-inline: 18px;
-  }
-
-  .ad-creative {
-    padding: 34px 30px;
-  }
-
-  .ad-copy p {
-    font-size: 15px;
   }
 }
 
@@ -722,36 +581,9 @@ select {
   width: 100%;
 }
 
-.settings-stack,
-.setting-block {
+.settings-stack {
   display: grid;
   gap: 15px;
-}
-
-.placement-grid {
-  display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.placement-card {
-  background: #fbfdff;
-  border: 1px solid #dbe4ee;
-  border-radius: 12px;
-  color: #526172;
-  cursor: pointer;
-  font-size: 13px;
-  font-weight: 800;
-  min-height: 58px;
-  padding: 12px;
-  text-align: left;
-}
-
-.placement-card.active {
-  background: #eef7ff;
-  border-color: #2e7eea;
-  color: #1e5ca8;
-  box-shadow: 0 10px 26px rgba(46, 126, 234, 0.12);
 }
 
 .range-row {
@@ -772,6 +604,37 @@ select {
   text-align: left;
 }
 
+.view-mode-card {
+  display: grid;
+  gap: 10px;
+}
+
+.segmented-control {
+  background: #f1f4f8;
+  border-radius: 12px;
+  display: grid;
+  gap: 4px;
+  grid-template-columns: 1fr 1fr;
+  padding: 4px;
+}
+
+.segmented-control button {
+  background: transparent;
+  border-radius: 9px;
+  color: #6f8096;
+  cursor: pointer;
+  font-weight: 850;
+  min-height: 40px;
+}
+
+.segmented-control button.selected {
+  background: #fff;
+  box-shadow:
+    0 0 0 1px rgba(28, 39, 54, 0.15),
+    0 6px 14px rgba(20, 34, 50, 0.1);
+  color: #24344d;
+}
+
 .toggle-row {
   align-items: center;
   background: #fbfdff;
@@ -787,21 +650,6 @@ select {
   accent-color: #2e7eea;
   height: 18px;
   width: 18px;
-}
-
-.local-state-card {
-  background: #f6f9fd;
-  border: 1px dashed #c9d7e8;
-  border-radius: 12px;
-  color: #6f8096;
-  display: grid;
-  gap: 4px;
-  padding: 14px;
-}
-
-.local-state-card strong {
-  color: #304159;
-  font-size: 13px;
 }
 
 .api-config-card {
@@ -835,6 +683,44 @@ select {
   height: 100%;
   object-fit: cover;
   width: 100%;
+}
+
+.uploaded-image-preview video {
+  background: #0f1722;
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.uploaded-logo-preview {
+  align-items: center;
+  background:
+    linear-gradient(45deg, #e7edf4 25%, transparent 25%),
+    linear-gradient(-45deg, #e7edf4 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #e7edf4 75%),
+    linear-gradient(-45deg, transparent 75%, #e7edf4 75%);
+  background-color: #f8fbff;
+  background-position:
+    0 0,
+    0 10px,
+    10px -10px,
+    -10px 0;
+  background-size: 20px 20px;
+  border: 1px solid #dbe4ee;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  min-height: 110px;
+  overflow: hidden;
+  padding: 18px;
+}
+
+.uploaded-logo-preview img {
+  display: block;
+  max-height: 80px;
+  max-width: 82%;
+  object-fit: contain;
 }
 
 .image-action-row {
@@ -876,6 +762,40 @@ select {
   display: flex;
   gap: 12px;
   justify-content: space-between;
+}
+
+.api-card-toggle {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  width: 100%;
+}
+
+.api-card-toggle:hover strong {
+  color: #1f6fc8;
+}
+
+.api-toggle-meta {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 8px;
+}
+
+.api-toggle-meta i {
+  color: #6f8096;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.api-config-body {
+  display: grid;
+  gap: 14px;
 }
 
 .api-card-header > div {
@@ -946,11 +866,6 @@ select {
   opacity: 0.62;
 }
 
-.device-picker {
-  min-width: 220px;
-}
-
-/* Stateful CTV preview */
 .stage-light {
   background:
     radial-gradient(circle at 50% 28%, rgba(255, 255, 255, 0.9), transparent 34%),
@@ -967,608 +882,6 @@ select {
   background:
     radial-gradient(circle at 20% 20%, rgba(88, 166, 255, 0.55), transparent 28%),
     linear-gradient(135deg, #d8ecff 0%, #b8c9ff 45%, #eff5ff 100%);
-}
-
-.tv-frame {
-  transform: scale(var(--preview-scale, 1));
-  transform-origin: center;
-  transition: transform 0.16s ease;
-}
-
-.device-generic {
-  border-radius: 18px;
-  padding: 14px 14px 24px;
-}
-
-.device-frameless {
-  background: transparent;
-  box-shadow: 0 24px 52px rgba(9, 18, 31, 0.18);
-  padding: 0;
-}
-
-.device-frameless .tv-screen {
-  border-radius: 14px;
-}
-
-.safe-area-outline {
-  border: 1px dashed rgba(255, 255, 255, 0.42);
-  inset: var(--safe-inset, 2.5%);
-  pointer-events: none;
-  position: absolute;
-  z-index: 20;
-}
-
-.ad-creative {
-  background:
-    radial-gradient(circle at 84% 14%, rgba(255, 255, 255, 0.9) 0 9%, transparent 10%),
-    linear-gradient(105deg, var(--primary) 0 47%, var(--surface) 47% 100%);
-}
-
-.style-premium {
-  background:
-    radial-gradient(circle at 70% 35%, color-mix(in srgb, var(--accent) 28%, transparent), transparent 28%),
-    linear-gradient(115deg, #0b1020 0 54%, var(--primary) 54% 100%);
-}
-
-.style-retail {
-  background:
-    radial-gradient(circle at 75% 25%, #fff3a8 0 10%, transparent 11%),
-    linear-gradient(105deg, var(--accent) 0 43%, var(--surface) 43% 100%);
-}
-
-.style-minimal {
-  background: linear-gradient(105deg, var(--surface) 0 52%, #ffffff 52% 100%);
-}
-
-.style-minimal .ad-copy,
-.style-retail .ad-copy {
-  color: #15243a;
-}
-
-.style-minimal .ad-copy p,
-.style-retail .ad-copy p,
-.style-minimal .legal,
-.style-retail .legal {
-  color: #526172;
-}
-
-.ad-copy button,
-.home-copy button,
-.sponsored-tile button,
-.pause-panel button,
-.samsung-actions button {
-  background: var(--accent);
-}
-
-.deal-card:first-child {
-  background: var(--accent);
-}
-
-.deal-card:nth-child(2) {
-  background: var(--primary);
-}
-
-.deal-stack.compact {
-  align-items: flex-start;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.deal-stack.compact .deal-card {
-  font-size: 12px;
-  padding: 10px 12px;
-  transform: none;
-  width: auto;
-}
-
-.qr-block {
-  align-items: center;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 14px 32px rgba(35, 53, 74, 0.18);
-  color: #24344b;
-  display: grid;
-  font-size: 11px;
-  font-weight: 800;
-  gap: 8px;
-  justify-items: center;
-  padding: 12px;
-  width: 118px;
-}
-
-.qr-grid {
-  background:
-    linear-gradient(90deg, #111 30%, transparent 30% 70%, #111 70%),
-    linear-gradient(#111 30%, transparent 30% 70%, #111 70%);
-  background-color: white;
-  background-size: 16px 16px;
-  border: 6px solid white;
-  box-shadow: inset 0 0 0 1px #c8d1dd;
-  height: 58px;
-  width: 58px;
-}
-
-.home-preview,
-.tile-preview,
-.pause-preview {
-  background: #071427;
-  color: white;
-  height: 100%;
-  overflow: hidden;
-  padding: 34px 42px;
-}
-
-.home-preview header,
-.tile-preview header {
-  align-items: center;
-  color: rgba(255, 255, 255, 0.72);
-  display: flex;
-  gap: 28px;
-  font-size: 15px;
-  margin-bottom: 26px;
-}
-
-.home-preview header strong,
-.tile-preview header strong {
-  color: white;
-  font-size: 22px;
-}
-
-.home-hero {
-  background:
-    radial-gradient(circle at 75% 20%, color-mix(in srgb, var(--accent) 40%, transparent), transparent 26%),
-    linear-gradient(110deg, var(--primary), #111b2f);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 24px;
-  display: grid;
-  gap: 22px;
-  grid-template-columns: 1.4fr 0.9fr;
-  min-height: 260px;
-  padding: 34px;
-}
-
-.home-copy span,
-.sponsored-tile span,
-.pause-panel > span {
-  color: #9fd4ff;
-  font-size: 12px;
-  font-weight: 900;
-  text-transform: uppercase;
-}
-
-.home-copy h3,
-.sponsored-tile h3,
-.pause-panel h3 {
-  font-size: clamp(28px, 3vw, 52px);
-  letter-spacing: -1.8px;
-  line-height: 0.98;
-  margin: 10px 0 14px;
-}
-
-.home-copy p,
-.pause-panel p {
-  color: rgba(255, 255, 255, 0.72);
-  line-height: 1.45;
-  max-width: 560px;
-}
-
-.home-copy button,
-.sponsored-tile button,
-.pause-panel button {
-  border-radius: 9px;
-  color: white;
-  cursor: pointer;
-  font-weight: 900;
-  padding: 13px 22px;
-}
-
-.home-ad-card {
-  align-content: center;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 20px;
-  display: grid;
-  gap: 18px;
-  padding: 24px;
-}
-
-.content-shelf {
-  margin-top: 26px;
-}
-
-.content-shelf h4 {
-  margin: 0 0 12px;
-}
-
-.content-shelf div {
-  display: grid;
-  gap: 14px;
-  grid-template-columns: repeat(6, 1fr);
-}
-
-.content-shelf span,
-.content-tile {
-  background: linear-gradient(135deg, #263854, #111b2f);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
-  min-height: 86px;
-}
-
-.content-shelf.small span {
-  min-height: 54px;
-}
-
-.tile-grid {
-  display: grid;
-  gap: 16px;
-  grid-template-columns: repeat(4, 1fr);
-}
-
-.content-tile {
-  align-items: end;
-  color: rgba(255, 255, 255, 0.7);
-  display: flex;
-  font-size: 13px;
-  padding: 14px;
-}
-
-.sponsored-tile {
-  background:
-    radial-gradient(circle at 80% 18%, color-mix(in srgb, var(--accent) 44%, transparent), transparent 26%),
-    linear-gradient(135deg, var(--primary), #15233d);
-  border: 2px solid rgba(255, 255, 255, 0.32);
-  border-radius: 20px;
-  display: grid;
-  gap: 10px;
-  grid-column: span 2;
-  grid-row: span 2;
-  min-height: 280px;
-  padding: 26px;
-}
-
-.pause-preview {
-  background:
-    linear-gradient(rgba(4, 10, 18, 0.35), rgba(4, 10, 18, 0.8)),
-    radial-gradient(circle at 28% 36%, #355578, #090f1b 55%);
-  display: grid;
-  gap: 24px;
-  grid-template-columns: 1fr 360px;
-}
-
-.pause-video {
-  align-content: end;
-  display: grid;
-  gap: 22px;
-}
-
-.pause-video span {
-  font-size: 24px;
-  font-weight: 900;
-}
-
-.playback-bar {
-  background: rgba(255, 255, 255, 0.22);
-  border-radius: 999px;
-  height: 8px;
-  overflow: hidden;
-  position: relative;
-}
-
-.playback-bar::before {
-  background: white;
-  content: '';
-  inset: 0 65% 0 0;
-  position: absolute;
-}
-
-.pause-panel {
-  align-self: center;
-  background: rgba(8, 16, 29, 0.84);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 24px;
-  box-shadow: 0 24px 58px rgba(0, 0, 0, 0.26);
-  display: grid;
-  gap: 14px;
-  padding: 28px;
-}
-
-.samsung-home-preview {
-  background:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.56) 0 12%, rgba(0, 0, 0, 0.12) 36%, rgba(0, 0, 0, 0.68) 100%),
-    radial-gradient(circle at 75% 16%, color-mix(in srgb, var(--accent) 48%, transparent), transparent 26%),
-    radial-gradient(circle at 35% 20%, color-mix(in srgb, var(--primary) 72%, #7a4fd8), #101225 46%, #070812 100%);
-  color: white;
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-}
-
-.samsung-home-preview::after {
-  background: linear-gradient(180deg, transparent 0 51%, rgba(5, 6, 12, 0.9) 55%, #06070d 100%);
-  content: '';
-  inset: 0;
-  pointer-events: none;
-  position: absolute;
-  z-index: 0;
-}
-
-.samsung-nav {
-  align-items: center;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.18));
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 13px;
-  left: 0;
-  padding-top: 22px;
-  position: absolute;
-  top: 0;
-  width: 8.2%;
-  z-index: 3;
-}
-
-.samsung-profile,
-.samsung-nav span {
-  align-items: center;
-  border-radius: 999px;
-  display: flex;
-  flex: 0 0 auto;
-  height: 26px;
-  justify-content: center;
-  width: 26px;
-}
-
-.samsung-profile {
-  background: rgba(255, 255, 255, 0.92);
-  color: #171a24;
-  font-size: 9px;
-  font-weight: 950;
-}
-
-.samsung-nav span {
-  color: rgba(255, 255, 255, 0.64);
-  font-size: 12px;
-  font-weight: 900;
-}
-
-.samsung-nav span.active {
-  background: rgba(255, 255, 255, 0.95);
-  color: #111827;
-}
-
-.samsung-masthead {
-  align-items: center;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 230px;
-  gap: 24px;
-  height: 55%;
-  padding: 42px 48px 34px 12.5%;
-  position: relative;
-  z-index: 2;
-}
-
-.samsung-masthead-copy {
-  display: grid;
-  gap: 11px;
-  max-width: 560px;
-}
-
-.samsung-kicker {
-  color: #bfe2ff;
-  font-size: 12px;
-  font-weight: 950;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.samsung-masthead-copy strong {
-  font-size: 24px;
-  letter-spacing: -0.03em;
-}
-
-.samsung-masthead-copy h3 {
-  font-size: clamp(32px, 4vw, 56px);
-  letter-spacing: -0.06em;
-  line-height: 0.95;
-  margin: 0;
-  max-width: 680px;
-}
-
-.samsung-masthead-copy p {
-  color: rgba(255, 255, 255, 0.74);
-  font-size: 16px;
-  line-height: 1.36;
-  margin: 0;
-  max-width: 560px;
-}
-
-.samsung-actions {
-  align-items: center;
-  display: flex;
-  gap: 14px;
-  margin-top: 4px;
-}
-
-.samsung-actions button {
-  border-radius: 999px;
-  color: white;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 950;
-  padding: 12px 22px;
-}
-
-.samsung-actions span {
-  color: rgba(255, 255, 255, 0.66);
-  font-size: 12px;
-  font-weight: 800;
-}
-
-.samsung-offer-card {
-  align-self: center;
-  background: rgba(255, 255, 255, 0.13);
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: 22px;
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.28);
-  display: grid;
-  gap: 10px;
-  justify-items: start;
-  padding: 20px;
-}
-
-.samsung-offer-card > span,
-.samsung-offer-card small {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 12px;
-  font-weight: 800;
-}
-
-.samsung-offer-card strong {
-  color: white;
-  font-size: 24px;
-  line-height: 1;
-}
-
-.samsung-offer-card .qr-block {
-  margin-top: 4px;
-  transform: scale(0.82);
-  transform-origin: top left;
-}
-
-.samsung-tabs {
-  align-items: center;
-  display: flex;
-  gap: 34px;
-  justify-content: center;
-  left: 12%;
-  position: absolute;
-  right: 5%;
-  top: 49%;
-  z-index: 3;
-}
-
-.samsung-tabs span {
-  color: rgba(255, 255, 255, 0.72);
-  font-size: 15px;
-  font-weight: 850;
-}
-
-.samsung-tabs span.active {
-  color: white;
-  position: relative;
-}
-
-.samsung-tabs span.active::after {
-  background: white;
-  border-radius: 999px;
-  content: '';
-  height: 3px;
-  left: 50%;
-  position: absolute;
-  top: 26px;
-  transform: translateX(-50%);
-  width: 24px;
-}
-
-.samsung-content {
-  bottom: 0;
-  display: grid;
-  gap: 12px;
-  left: 10.8%;
-  padding: 0 26px 18px 0;
-  position: absolute;
-  right: 0;
-  top: 56%;
-  z-index: 2;
-}
-
-.samsung-row-title {
-  align-items: center;
-  color: rgba(255, 255, 255, 0.78);
-  display: flex;
-  font-size: 13px;
-  font-weight: 900;
-  gap: 24px;
-}
-
-.samsung-row-title span:first-child {
-  color: white;
-}
-
-.samsung-tile-row,
-.samsung-app-row {
-  display: grid;
-  gap: 12px;
-}
-
-.samsung-tile-row {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
-.samsung-content-tile {
-  align-items: end;
-  background:
-    linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.62)),
-    linear-gradient(135deg, #2a3556, #151827 55%, #0f1018);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 12px;
-  display: flex;
-  min-height: 76px;
-  overflow: hidden;
-  padding: 12px;
-}
-
-.samsung-content-tile:nth-child(2) {
-  background:
-    linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.62)),
-    linear-gradient(135deg, #114c82, #0b1c34);
-}
-
-.samsung-content-tile:nth-child(3) {
-  background:
-    linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.62)),
-    linear-gradient(135deg, #243f76, #11121a);
-}
-
-.samsung-content-tile span {
-  font-size: 12px;
-  font-weight: 850;
-}
-
-.samsung-app-row {
-  grid-template-columns: repeat(10, minmax(0, 1fr));
-}
-
-.samsung-app {
-  align-items: center;
-  display: grid;
-  gap: 5px;
-  justify-items: center;
-  min-width: 0;
-}
-
-.samsung-app > span {
-  align-items: center;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(205, 218, 241, 0.9));
-  border-radius: 10px;
-  color: #111827;
-  display: flex;
-  font-size: 12px;
-  font-weight: 950;
-  height: 42px;
-  justify-content: center;
-  width: 42px;
-}
-
-.samsung-app small {
-  color: rgba(255, 255, 255, 0.65);
-  font-size: 9px;
-  font-weight: 750;
-  max-width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 /* Stable app layout: the page itself does not grow; each column owns its scrolling. */
@@ -1620,7 +933,7 @@ select {
 .content-grid {
   align-items: stretch;
   flex: 1 1 auto;
-  grid-template-columns: 420px minmax(0, 1fr);
+  grid-template-columns: minmax(340px, 0.34fr) minmax(760px, 1fr);
   height: calc(100vh - 76px);
   min-height: 0;
   overflow: hidden;
@@ -1634,8 +947,7 @@ select {
 }
 
 .tabs,
-.preview-header,
-.spec-row {
+.preview-header {
   flex: 0 0 auto;
 }
 
@@ -1661,8 +973,7 @@ select {
 .color-grid,
 .color-control,
 .color-control div,
-.range-row,
-.local-state-card {
+.range-row {
   max-width: 100%;
   min-width: 0;
 }
@@ -1713,40 +1024,31 @@ select {
   min-height: 0;
 }
 
-.tv-frame {
-  max-width: 100%;
-}
-
-.spec-row {
-  min-width: 0;
-}
-
-.spec-row div,
-.spec-row strong {
-  min-width: 0;
-}
-
-.spec-row strong {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
 @media (max-width: 1280px) {
   .content-grid {
-    grid-template-columns: 400px minmax(0, 1fr);
+    grid-template-columns: 360px minmax(700px, 1fr);
     padding-inline: 20px;
   }
 
-  .actions button,
-  .device-picker {
+  .actions button {
     padding-inline: 12px;
   }
 }
 
-/* SamsungTVScreen source port, scoped so generic CTV placements keep their own frame styles. */
 .samsung-stage {
-  padding: 18px 24px 22px;
+  overflow: visible;
+  position: relative;
+  padding: 18px 8px 22px;
+}
+
+.preview-device-row {
+  align-items: flex-start;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  max-width: 100%;
+  overflow: visible;
+  width: 100%;
 }
 
 .samsung-tv-copy .tv-scale-shell {
@@ -1794,11 +1096,142 @@ select {
 
 .samsung-tv-copy .tv-screen {
   aspect-ratio: auto;
-  background: #0c0c0c;
+  background: var(--screen-background, #0c0c0c);
+  background-position: center;
+  background-size: cover;
   border-radius: 6px;
   inset: 0;
   overflow: hidden;
   position: absolute;
+}
+
+.samsung-tv-copy .tv-screen::before {
+  background:
+    radial-gradient(circle at 75% 20%, color-mix(in srgb, var(--samsung-accent) 30%, transparent), transparent 24%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.34), rgba(0, 0, 0, 0.08) 46%, rgba(0, 0, 0, 0.28));
+  content: '';
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+}
+
+.samsung-tv-copy .screen-video {
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  z-index: 0;
+}
+
+.samsung-tv-copy .has-screen-video::before {
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.08) 48%, rgba(0, 0, 0, 0.32)),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.18), transparent 46%);
+  z-index: 1;
+}
+
+.samsung-tv-copy .has-screen-video .masthead-section,
+.samsung-tv-copy .has-screen-video .expanded-ad-view {
+  z-index: 2;
+}
+
+.samsung-tv-copy .expanded-screen::before {
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.64) 0%, rgba(0, 0, 0, 0.24) 46%, rgba(0, 0, 0, 0.58) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, transparent 44%);
+}
+
+.samsung-tv-copy .expanded-screen::after {
+  background: radial-gradient(circle at 72% 50%, color-mix(in srgb, var(--samsung-accent) 34%, transparent), transparent 28%);
+  content: '';
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+}
+
+.samsung-tv-copy .expanded-ad-view {
+  align-items: center;
+  display: grid;
+  gap: 52px;
+  grid-template-columns: minmax(0, 1.08fr) minmax(250px, 0.82fr);
+  height: 100%;
+  padding: 62px 82px 58px;
+  position: relative;
+  z-index: 1;
+}
+
+.samsung-tv-copy .expanded-ad-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-width: 0;
+}
+
+.samsung-tv-copy .expanded-ad-kicker {
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.34);
+}
+
+.samsung-tv-copy .expanded-ad-copy h2 {
+  color: #fff;
+  font-size: 58px;
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 0.98;
+  margin: 0;
+  max-width: 560px;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.44);
+}
+
+.samsung-tv-copy .expanded-ad-copy p {
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.38;
+  margin: 0;
+  max-width: 500px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.38);
+}
+
+.samsung-tv-copy .expanded-ad-action {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  justify-content: center;
+  min-width: 0;
+}
+
+.samsung-tv-copy .expanded-ad-brand {
+  color: #fff;
+  font-size: 66px;
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 0.96;
+  max-width: 360px;
+  overflow-wrap: anywhere;
+  text-align: right;
+  text-shadow: 0 4px 26px rgba(0, 0, 0, 0.4);
+}
+
+.samsung-tv-copy .expanded-ad-cta {
+  background: #fff;
+  border: 0;
+  border-radius: 999px;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.28);
+  color: #101820;
+  font-size: 18px;
+  font-weight: 900;
+  min-width: 210px;
+  padding: 16px 32px;
 }
 
 .samsung-tv-copy .tv-stand {
@@ -1827,6 +1260,102 @@ select {
   margin-top: 16px;
 }
 
+.remote-control {
+  align-items: center;
+  background: linear-gradient(180deg, #f3f4f5 0%, #cfd3d8 100%);
+  border: 1px solid rgba(23, 30, 39, 0.16);
+  border-radius: 20px;
+  box-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, 0.92),
+    0 10px 24px rgba(36, 48, 62, 0.16);
+  display: flex;
+  flex: 0 0 58px;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: calc(var(--tv-shell-height, 608px) * 0.18);
+  padding: 10px 8px 12px;
+  width: 58px;
+  z-index: 3;
+}
+
+.remote-top-slot {
+  background: #20242a;
+  border-radius: 999px;
+  height: 8px;
+  opacity: 0.72;
+  width: 26px;
+}
+
+.remote-dpad {
+  display: grid;
+  gap: 2px;
+  grid-template-areas:
+    '. up .'
+    'left ok right'
+    '. down .';
+  grid-template-columns: 14px 22px 14px;
+  grid-template-rows: 18px 22px 18px;
+}
+
+.remote-control button {
+  align-items: center;
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+
+.remote-arrow {
+  background: transparent;
+  color: #717982;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.remote-arrow.active {
+  color: #0d879a;
+}
+
+.remote-up {
+  grid-area: up;
+}
+
+.remote-left {
+  grid-area: left;
+}
+
+.remote-right {
+  grid-area: right;
+}
+
+.remote-down {
+  grid-area: down;
+}
+
+.remote-ok {
+  background: linear-gradient(180deg, #fdfdfd, #dfe3e7);
+  border-radius: 999px;
+  color: #303944;
+  font-size: 8px;
+  font-weight: 850;
+  grid-area: ok;
+  height: 22px;
+  width: 22px;
+}
+
+.remote-back {
+  background: #e4e7eb;
+  border-radius: 999px;
+  color: #4a5360;
+  font-size: 8px;
+  font-weight: 850;
+  height: 20px;
+  width: 38px;
+}
+
 .samsung-tv-copy .masthead-section {
   height: 55%;
   left: 0;
@@ -1842,54 +1371,58 @@ select {
   width: 100%;
 }
 
-.samsung-tv-copy .masthead-placeholder {
-  align-items: center;
-  background: #0c0c0c;
-  display: flex;
-  height: 100%;
-  justify-content: center;
-  position: relative;
-  width: 100%;
-}
-
-.samsung-tv-copy .upload-placeholder {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.samsung-tv-copy .upload-placeholder .upload-icon {
-  height: 48px;
-  margin-bottom: 8px;
-  width: 48px;
-}
-
-.samsung-tv-copy .upload-placeholder .upload-text {
-  color: rgba(255, 255, 255, 0.15);
-  font-family: 'JetBrains Mono', 'Fira Code', monospace;
-  font-size: 9px;
-}
-
 .samsung-tv-copy .masthead-content {
   align-items: center;
-  background-position: center;
-  background-size: cover;
   display: flex;
   height: 100%;
+  justify-content: space-between;
   padding: 48px 64px;
   position: relative;
   width: 100%;
 }
 
-.samsung-tv-copy .masthead-content::after {
-  background:
-    radial-gradient(circle at 75% 20%, color-mix(in srgb, var(--samsung-accent) 36%, transparent), transparent 24%),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.38));
-  content: '';
-  inset: 0;
+.samsung-tv-copy .draggable-logo {
+  align-items: center;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  box-shadow: none;
+  cursor: grab;
+  display: flex;
+  justify-content: center;
+  max-height: 58px;
+  padding: 0;
+  position: absolute;
+  touch-action: none;
+  transform: translate(-50%, -50%);
+  user-select: none;
+  z-index: 4;
+}
+
+.samsung-tv-copy .draggable-logo:hover,
+.samsung-tv-copy .draggable-logo:active {
+  background: rgba(0, 0, 0, 0.16);
+  border-color: rgba(255, 255, 255, 0.45);
+  cursor: grabbing;
+}
+
+.samsung-tv-copy .draggable-logo img {
+  display: block;
+  max-height: 42px;
+  max-width: 140px;
+  object-fit: contain;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.24));
+}
+
+.samsung-tv-copy .screen-bottom-fade {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.96) 0%, rgba(0, 0, 0, 0.82) 36%, rgba(0, 0, 0, 0.48) 68%, rgba(0, 0, 0, 0.14) 90%, rgba(0, 0, 0, 0) 100%);
+  bottom: 0;
+  height: 50%;
+  inset-inline: 0;
   pointer-events: none;
   position: absolute;
+  z-index: 1;
 }
 
 .samsung-tv-copy .masthead-text {
@@ -1901,11 +1434,12 @@ select {
   z-index: 1;
 }
 
-.samsung-tv-copy .brand-logo {
+.samsung-tv-copy .home-brand-logo {
   color: #fff;
   font-size: 42px;
   font-weight: 700;
   letter-spacing: -0.5px;
+  line-height: 1;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
 }
 
@@ -1945,26 +1479,6 @@ select {
 
 .samsung-tv-copy .cta-button:hover {
   background: color-mix(in srgb, var(--samsung-accent) 84%, rgba(255, 255, 255, 0.2));
-}
-
-.samsung-tv-copy .safe-zone-overlay {
-  border: 2px dashed rgba(255, 255, 0, 0.6);
-  inset: 0;
-  pointer-events: none;
-  position: absolute;
-  z-index: 10;
-}
-
-.samsung-tv-copy .safe-zone-overlay::before {
-  background: rgba(0, 0, 0, 0.6);
-  border-radius: 3px;
-  color: rgba(255, 255, 0, 0.8);
-  content: 'Safe Zone';
-  font-size: 10px;
-  left: 8px;
-  padding: 2px 6px;
-  position: absolute;
-  top: 8px;
 }
 
 .samsung-tv-copy .nav-bar-overlay {
